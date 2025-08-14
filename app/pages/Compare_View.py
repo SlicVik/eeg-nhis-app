@@ -178,8 +178,8 @@ friendly_labels = {
 def labelize(col):
     return col.replace("_", " ").title()
 
-eeg_options = {labelize(c): c for c in ordered_eeg}
-nhis_options = {labelize(c): c for c in ordered_nhis}
+eeg_options = {get_friendly_label(c): c for c in ordered_eeg}
+nhis_options = {get_friendly_label(c): c for c in ordered_nhis}
 
 # Sidebar controls
 st.sidebar.header("Compare controls")
@@ -399,6 +399,7 @@ st.markdown("""
 - **Assumptions:** data cleaning / definitions come from the repo. Check the `data/clean/` scripts for precise preprocessing (e.g., whether sleep hours are rounded, how missingness was handled).
 - **Reproducibility:** all aggregation steps are visible in the app. For exact code integration, consider exporting the grouped DF to CSV and including the tidy pipeline in your repo's `notebooks/` folder.
 """)
+
 
 
 
