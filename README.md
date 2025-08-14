@@ -49,12 +49,13 @@ In this app, NHIS data includes:
 ## 🌐 Live App
 
 - Here’s our live, interactive Streamlit app:  
-- [**EEG + NHIS Explorer on Streamlit**](https://eeg-nhis-app.streamlit.app/)
+-- [**EEG + NHIS Explorer on Streamlit**](https://eeg-nhis-app.streamlit.app/)
 ---
 
 ## ⚙️ Requirements
 To install dependencies, run:
 ```bash
 pip install -r requirements.txt
+
 
 
