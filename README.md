@@ -46,7 +46,7 @@ In this app, NHIS data includes:
 - Description: U.S. household survey including sleep measures and demographics.
 
 **Reproducibility**  
-- Download CSV following the links. Processing steps are noted in each module; code paths and assumptions are documented in app text. The app is descriptive, not diagnostic.
+- Download CSV from the links. Processing steps are noted in each module; code paths and assumptions are documented in app text. The app is descriptive, not diagnostic.
 
 ---
 ## 🌐 Live App
@@ -59,6 +59,7 @@ In this app, NHIS data includes:
 To install dependencies, run:
 ```bash
 pip install -r requirements.txt
+
 
 
 
