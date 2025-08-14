@@ -178,6 +178,21 @@ friendly_labels = {
 def get_friendly_label(col):
     return friendly_labels.get(col, col.replace("_", " ").title())
 
+def labelize(col):
+    return get_friendly_label(col)
+
+# Build EEG metric options
+eeg_numeric = numeric_columns(eeg_df)
+eeg_suggested = suggest_columns(eeg_df, ["alpha", "theta", "beta", "delta", "power", "pvt", "rt", "panas", "mood"])
+# Keep ordering: suggested first then other numeric
+ordered_eeg = eeg_suggested + [c for c in eeg_numeric if c not in eeg_suggested]
+
+# Build NHIS metric options
+nhis_numeric = numeric_columns(nhis_df)
+nhis_suggested = suggest_columns(nhis_df, ["sleep", "hour", "rest", "trouble", "aid", "insomnia"])
+ordered_nhis = nhis_suggested + [c for c in nhis_numeric if c not in nhis_suggested]
+
+# Map friendly names to actual column names for dropdowns
 eeg_options = {get_friendly_label(c): c for c in ordered_eeg}
 nhis_options = {get_friendly_label(c): c for c in ordered_nhis}
 
@@ -399,6 +414,7 @@ st.markdown("""
 - **Assumptions:** data cleaning / definitions come from the repo. Check the `data/clean/` scripts for precise preprocessing (e.g., whether sleep hours are rounded, how missingness was handled).
 - **Reproducibility:** all aggregation steps are visible in the app. For exact code integration, consider exporting the grouped DF to CSV and including the tidy pipeline in your repo's `notebooks/` folder.
 """)
+
 
 
 
